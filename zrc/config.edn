@@ -1,7 +1,6 @@
 {ns     config
  import #{aidbox
-          aidbox.config
-          hl7-fhir-r4-core}
+          aidbox.config}
 
  db-config
  {:zen/tags #{aidbox.config/db}
@@ -39,6 +38,10 @@
   :validation {:json-schema {:regex #{:fhir-datetime}}}
   :auth       {:pkce {:code-challenge {:s256 {:conformant true}}}}}
 
+ features
+ {:zen/tags #{aidbox.config/features}
+  :validation {:mode "fhir-schema"}}
+
  auth
  {:zen/tags       #{aidbox.config/auth}
   :login-redirect "/ui/console"
@@ -53,9 +56,10 @@
   :search                  search-config
   :compatibility           compatibility-config
   :auth                    auth
-
+  :features                features
   :aidbox-license #env AIDBOX_LICENSE
 
+  :fhir-packages           "hl7.fhir.us.core#5.0.1"
   :fhir-version            "4.0.1"
   :compliant-mode-enabled? true
   :override-createdat-url  "http://fhir.aidbox.app/extension/createdat"

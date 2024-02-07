@@ -22,6 +22,7 @@ services:
       - "./zrc:/aidbox-project/zrc"
       - "./zen-package.edn:/aidbox-project/zen-package.edn"
       - "./zen-packages:/aidbox-project/zen-packages"
+      - "./tmp:/tmp"
     env_file:
       - .env
     environment:
